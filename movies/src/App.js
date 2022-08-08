@@ -3,27 +3,27 @@ import "./App.css";
 
 const App = () => {
   const action = [
-    { movieName: "John Wick", rating: 4.5 },
-    { movieName: "The Mechanic", rating: 4.2 },
-    { movieName: "The Transporter", rating: 4.4 },
+    { key: "1", movieName: "John Wick", rating: 4.5 },
+    { key: "2", movieName: "The Mechanic", rating: 4.2 },
+    { key: "3", movieName: "The Transporter", rating: 4.4 },
   ];
   const comedy = [
-    { movieName: "Dumb & Dumber", rating: 5 },
-    { movieName: "The Hangover", rating: 5 },
-    { movieName: "Golmaal", rating: 5 },
+    { key: "1", movieName: "Dumb & Dumber", rating: 5 },
+    { key: "2", movieName: "The Hangover", rating: 5 },
+    { key: "3", movieName: "Golmaal", rating: 5 },
   ];
   const horror = [
-    { movieName: "The Evil Dead", rating: 5 },
-    { movieName: "The Incidious", rating: 4.2 },
-    { movieName: "The Anabella", rating: 4.5 },
+    { key: "1", movieName: "The Evil Dead", rating: 5 },
+    { key: "2", movieName: "The Incidious", rating: 4.2 },
+    { key: "3", movieName: "The Anabella", rating: 4.5 },
   ];
   const [currentGenre, setCurrentGenre] = useState("");
-  const actionHandler = () => {
+  const actionHandler = (id) => {
     setCurrentGenre(
-      action.map((item) => {
+      (id === 1 ? action : id === 2 ? comedy : horror).map((item) => {
         return (
-          <div className="dynamic">
-            <div clasName="dynamic_name">{item.movieName}</div>
+          <div key={item.key} className="dynamic">
+            <div className="dynamic_name">{item.movieName}</div>
             <div className="dynamic_rating">{item.rating} / 5</div>
           </div>
         );
@@ -39,9 +39,17 @@ const App = () => {
           Checkout my favourite movies. Select a genere to get started.
         </div>
         <div className="static_genre_navigate">
-          <button onClick={actionHandler}>Action</button>
-          <button>Comedy</button>
-          <button>Horror</button>
+          {[
+            { key: 1, text: "action", id: 1 },
+            { key: 2, text: "comedy", id: 2 },
+            { key: 3, text: "horror", id: 3 },
+          ].map((item) => {
+            return (
+              <button key={item.key} onClick={() => actionHandler(item.id)}>
+                {item.text}
+              </button>
+            );
+          })}
         </div>
       </div>
       <div className="dynamic_container">{currentGenre}</div>

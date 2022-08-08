@@ -25,7 +25,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 40px;
 }
 .static {
   display: flex;
@@ -64,8 +64,10 @@ button {
   align-items: center;
 }
 .dynamic {
-  width: 60%;
+  width: 40%;
   padding: 16px;
   border: 1px solid gray;
   border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
 }
