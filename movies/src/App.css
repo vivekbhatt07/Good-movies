@@ -40,11 +40,11 @@ body {
 }
 
 .static_subhead {
-  font-weight: 600;
+  font-weight: 500;
 }
 .static_genre_navigate {
   display: flex;
-  gap: 10px;
+  gap: 20px;
 }
 button {
   padding: 0.5rem 1rem;
@@ -53,6 +53,8 @@ button {
   border-radius: 12px;
   font-family: "Poppins", sans-serif;
   cursor: pointer;
+  border: none;
+  text-transform: capitalize;
 }
 
 .dynamic_container {
@@ -70,4 +72,14 @@ button {
   border-radius: 12px;
   display: flex;
   justify-content: space-between;
+}
+
+.dynamic_name {
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #999;
+}
+
+.dynamic_name:hover {
+  color: #000;
 }
